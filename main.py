@@ -39,6 +39,10 @@ async def get_drug(drug_id: str):
 @app.put("/drugs/{drug_id}")
 async def update_drug(drug_id: str, drug: DrugData):
     drug = await Drug.find_one(Drug.id == drug_id)
+    drug.first_name = drug.first_name
+    drug.last_name = drug.last_name
+    drug.business_name = drug.business_name
+    drug.hospital = drug.hospital
     drug.name = drug.name
     drug.quantity = drug.quantity
     drug.lot = drug.lot
@@ -55,6 +59,10 @@ async def search_drugs(name: str):
 @app.patch("/drugs/{drug_id}")
 async def update_drug(drug_id: str, drug: DrugData):
     drug = await Drug.find_one(Drug.id == drug_id)
+    drug.first_name = drug.first_name
+    drug.last_name = drug.last_name
+    drug.business_name = drug.business_name
+    drug.hospital = drug.hospital
     drug.name = drug.name
     drug.quantity = drug.quantity
     drug.lot = drug.lot

@@ -4,7 +4,10 @@ from beanie import Document
 
 
 class Drug(Document):
-    hospital: str | None = None
+    first_name: str
+    last_name: str
+    business_name: str | None = None
+    hospital: str
     name: str
     quantity: int
     lot: str
@@ -15,16 +18,21 @@ class Drug(Document):
     class Config:
         schema_extra = {
             "example": {
+                "first_name": "Maya",
+                "last_name": "Biendonado",
+                "business_name": "Maya's Pharmacy",
                 "hospital": "Hospital 1",
                 "name": "Ibuprofen",
                 "quantity": 100,
                 "lot": "123456789",
             }
-
         }
 
 
 class DrugData(pydantic.BaseModel):
+    first_name: str
+    last_name: str
+    business_name: str | None = None
     hospital: str | None = None
     name: str
     quantity: int
