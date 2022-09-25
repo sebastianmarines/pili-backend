@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, date
 import pydantic
 from beanie import Document
 
@@ -7,7 +7,6 @@ class Drug(Document):
     name: str
     quantity: int
     lot: str
-    expiration: datetime
 
     class Collection:
         name = "drugs"
@@ -18,8 +17,8 @@ class Drug(Document):
                 "name": "Ibuprofen",
                 "quantity": 100,
                 "lot": "123456789",
-                "expiration": datetime(2021, 12, 31),
             }
+
         }
 
 
@@ -27,4 +26,3 @@ class DrugData(pydantic.BaseModel):
     name: str
     quantity: int
     lot: str
-    expiration: datetime
