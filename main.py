@@ -1,4 +1,4 @@
-from datetime import date
+import datetime
 from fastapi import FastAPI
 from config import initiate_db, Settings
 from models import Drug, DrugData
@@ -27,7 +27,6 @@ async def root():
 
 @app.post("/drugs")
 async def create_drug(drug: DrugData):
-    # print(drug.expiration)
     drug = Drug(**drug.dict())
     await drug.save()
     return drug
