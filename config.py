@@ -7,6 +7,7 @@ from models import Drug
 
 class Settings(BaseSettings):
     DATABASE_URL: str | None = None
+    PORT: int = 8000
 
     class Config:
         env_file = ".env"
